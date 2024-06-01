@@ -1,0 +1,35 @@
+
+<div>
+  <!-- <router-outlet></router-outlet> -->
+  <div class="row">
+    <div class="col-md-3 mt-2">
+      <button mat-raised-button color="accent">Upload </button>
+    </div>
+    <div class="col-md-3 mt-2">
+      <button mat-raised-button color="accent">Run ML </button>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-5 mt-2">
+      <select [(ngModel)]="graphType" (change)="setSubGraph()">
+        <option value="line">Line</option>
+        <option value="bar">Bar</option>        
+        <option value="pie">Pie</option>
+        <option value="scatter">Scatter</option>
+        <option value="bubble">Bubble</option>
+        <option value="filled">Filled Area Plots</option>
+        <option value="horizontal_bar">Horizontal Bar Charts</option>
+        <option value="sunburst">Sunburst Chart</option>
+        <option value="point_cloud">Point Cloud Chart</option>
+        <option value="dot">Dot Plots Chart</option>
+      </select>&nbsp;&nbsp;&nbsp;
+      <select [(ngModel)]="subGraphType" (change)="drawChart()">
+        <option *ngFor="let subgraph of subGraphOptions" value="{{subgraph.value}}">{{subgraph.title}}</option>
+      </select>
+      <div #plotlyChart></div>  
+    </div>
+  </div>
+</div>
+
+
